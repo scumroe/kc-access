@@ -27,15 +27,19 @@ Public Module Module1
             Dim guess As String = Console.ReadLine()
 
             If word.Contains(guess) Then
-                Console.WriteLine("Right.")
-                Dim temp As Integer = word.IndexOf(guess)
-
                 If str_hide.Contains(guess) Then
-                    temp = word.LastIndexOf(guess)
-                End If
 
-                str_hide = str_hide.Remove(temp, 1)
-                str_hide = str_hide.Insert(temp, guess)
+                Else
+                    Console.WriteLine("Right.")
+                    Dim temp As Integer = word.IndexOf(guess)
+
+                    If str_hide.Contains(guess) Then
+                        temp = word.LastIndexOf(guess)
+                    End If
+
+                    str_hide = str_hide.Remove(temp, 1)
+                    str_hide = str_hide.Insert(temp, guess)
+                End If
             Else
                 Console.WriteLine("Wrong.")
                 playerLives -= 1
