@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 
 
 Public Module Module1
@@ -29,6 +29,11 @@ Public Module Module1
             If word.Contains(guess) Then
                 Console.WriteLine("Right.")
                 Dim temp As Integer = word.IndexOf(guess)
+
+                If str_hide.Contains(guess) Then
+                    temp = word.LastIndexOf(guess)
+                End If
+
                 str_hide = str_hide.Remove(temp, 1)
                 str_hide = str_hide.Insert(temp, guess)
             Else
